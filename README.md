@@ -2,29 +2,42 @@
 
 Fold lines from stdout that with same prefix.
 
-## usage
+## One line usage
 
 ```sh
 for i in {1..4}; do echo "[out] something $i..."; sleep(0.5); done | foldline 
 ```
 
-## install
+## Install
+
+[Download the release tarball](https://github.com/quchunguang/foldline/releases), extract it, and,
 
 ```sh
-gcc -c foldline.c -o foldline
-sudo ln -s foldline /usr/bin/
+./configure
+make
+sudo make install
 ```
 
-## arguments
+## Command line arguments
 
 -h | --help: Display usage
 
 -n <size>:   Compare only the first <size> charactors. 4 by default.
 
-## autotool usage
+## Development
+
+### Dependence
+
+* glibc
+
+### Build on ubuntu latest
+
+gcc foldline.c -o foldline
+
+### Usage of autotool
 
 ```sh
-# tested on ubuntu latest
+# Tested on ubuntu latest
 sudo apt-get install autotools-dev autoconf
 
 # On the maintainer’s system:
