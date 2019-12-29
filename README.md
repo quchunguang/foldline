@@ -5,7 +5,7 @@ Fold lines from stdout that with same prefix.
 ## One line usage
 
 ```sh
-for i in {1..4}; do echo "[out] something $i..."; sleep(0.5); done | foldline 
+for i in {1..4}; do echo "[out] something $i..."; sleep 0.5; done | foldline
 ```
 
 ## Install
@@ -20,9 +20,8 @@ sudo make install
 
 ## Command line arguments
 
--h | --help: Display usage
-
--n <size>:   Compare only the first <size> charactors. 4 by default.
+	-h, --help: Display usage
+	-n <size>:   Compare only the first <size> charactors. 4 by default.
 
 ## Development
 
@@ -32,7 +31,9 @@ sudo make install
 
 ### Build on ubuntu latest
 
+```sh
 gcc foldline.c -o foldline
+```
 
 ### Usage of autotool
 
