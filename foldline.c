@@ -25,10 +25,10 @@ int main(int argc, char *argv[])
 	char* prefix = malloc(buf_len);
 
 	char* line = NULL;
-	size_t n = 0;
-	while(getline(&line, &n, stdin) != -1) {
+	size_t n = 0, bufsize = 0;
+	while((n = getline(&line, &bufsize, stdin)) != -1) {
 		if (strncmp(line, prefix, MIN(buf_len, n)) == 0)
-			write(STDOUT_FILENO, "\033[A\033[K", 6);
+			write(STDOUT_FILENO, "\033[F\033[K", 6);
 		write(STDOUT_FILENO, line, n);
 		strncpy(prefix, line, MIN(buf_len, n));
 	}
